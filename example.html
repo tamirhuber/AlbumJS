@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<!--=============== Basic ===============-->
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<title>AlbumJS Example</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+       
+
+		<link rel="stylesheet" href="lib/albumjs/css/albumjs.min.css">
+        <style>
+            .album_contain{
+                width: 30%;
+                margin-left: 10%;
+                margin-right: 10%;
+                height: 250px;
+                overflow: hidden;
+                display: inline-block;
+            }
+        </style>
+	</head>
+	<body>
+     
+        
+       <h1>Vaction Albums</h1>
+        </br>
+        <div class="">
+            <div id="NYC" albumname="NYC" class="album_contain">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/main_image_september_2013.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/statue_of_liberty_and_skyline_getty_tetra_images.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/the_high_line.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/brooklyn_bridge_up_shot_getty_zsolt_hlinka.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/fifth_avenue.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/ny_statue_of_liberty.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/central_park.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/bbridge_dawn_flickr_lukas_schlagenhauf.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/44/times_square.jpg">
+            </div>
+            
+            <div id="Maui" albumname="Maui" class="album_contain" style="float: right;">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/61/2016-main-getty.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/61/hookipa_beach_getty.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/61/haleakala_national_park_getty.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/61/whales_getty.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/61/haleakala_sunrise_getty.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/61/iao_valley_getty.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/61/waianapanapa_state_park_getty.jpg">
+                <img src="https://travel.usnews.com/static-travel/images/destinations/61/kaihalulu.jpg">
+            </div>
+            
+        </div>
+        
+		<!--=============== jQuery Library ===============-->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="lib/albumjs/albumjs.min.js"></script>
+        <script>
+        $(document).ready( function() {
+        $('#Maui').albumjs({theme: "dark", viewnum:5, customize: true, preview: "shutter"});
+        $('#NYC').albumjs({ preview:"fader", general:true, customize:true, theme: "bright", viewnum:3}); 
+        });
+        </script>
+        
+	</body>
+</html>

@@ -1,0 +1,830 @@
+
+.noscroll{
+    overflow: hidden;
+}
+.row{
+    margin: 0px;
+}
+#albumjs-overlay{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top:0;
+    left: 0;
+    padding: 20px;
+    text-align: center;
+    display: none;
+    overflow-y: scroll;
+}
+   
+.albumjs-dark{
+    background-color: rgba(0, 0, 0, 0.85);
+    border-color: white;
+}
+.albumjs-dark #albumjs-main-pic-prev, #albumjs-main-pic-next{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+.albumjs-dark #albumjs-main-pic, .albumjs-thumbnail-pic, #albumjs-album-title, #albumjs-gallery-close{
+    border-color:  white !important;
+    color: white !important;
+}
+
+.albumjs-bright{
+    background-color: rgba(200, 200, 200, 0.9);
+    border-color: black;
+}
+.albumjs-bright #albumjs-main-pic{
+    border-color:  black !important;
+    color: black !important;
+}
+.albumjs-bright .albumjs-thumbnail-pic {
+    border-color:  black !important;
+    color: black !important;
+}
+.albumjs-bright #albumjs-album-title {
+    border-color:  black !important;
+    color: black !important;
+}
+.albumjs-bright #albumjs-gallery-close{
+    border-color:  black !important;
+    color: black !important;
+}
+.albumjs-bright #albumjs-main-pic-prev{
+    background-color: rgba(240, 240, 240, 0.8);
+    color: black;
+}
+.albumjs-bright #albumjs-main-pic-next{
+    background-color: rgba(240, 240, 240, 0.8);
+    color: black;
+}
+
+/* Setting for mobile  */
+#albumjs-gallery{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+}
+#albumjs-gallery-close{
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+    font-weight: bold; 
+    line-height: 1;
+    text-align: center;
+    padding: 0px;
+}
+
+#albumjs-album-title{
+    margin: 5px;
+    color: inherit;
+    font-size: 20px;
+}
+
+#albumjs-main-pic-cont{
+    width: 95%;
+    height: auto;
+    display: block;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+#albumjs-main-pic{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+#albumjs-main-pic-prev{
+    display: none;
+}
+#albumjs-main-pic-next{
+    display: none;
+}
+.albumjs-thumbnail-pic{
+    width: 17%;
+    margin: 1%;
+    display: inline-block;
+    border: 1px solid;
+    border-color: inherit;
+    filter: grayscale(80%);
+    -webkit-filter: grayscale(80%);
+    cursor: pointer;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+
+}
+.albumjs-thumbnail-selected{
+    width: 18%;
+    margin: 1%;
+    display: inline-block;
+    border: 2px solid;
+    border-color: inherit;
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~ */
+        /* Fixes */
+    /* Not Mobile   */
+@media only screen and (min-width: 768px){
+    
+    #albumjs-gallery{
+        width: 80%;
+        text-align: center;
+        margin: auto;
+        white-space: nowrap;
+    }
+    #albumjs-album-title{
+        margin: 5px;
+        color: inherit;
+        font-size: 24px;
+    }
+
+    #albumjs-main-pic-cont{
+        width: 60%;
+        height: auto;
+        display: block;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+    }
+    #albumjs-main-pic{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    #albumjs-main-pic-prev{
+        position: absolute;
+        left: 0;
+        width: 5%;
+        padding: 38% 20px;
+        height: 0;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    #albumjs-main-pic-next{
+        color: white;
+        position: absolute;
+        right: 0;
+        width: 5%;
+        padding: 38% 20px;
+        height: 0;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .albumjs-thumbnail-pic{
+        width: 13%;
+        margin: 1%;
+        display: inline-block;
+        border: 3px solid;
+        border-color: inherit;
+        filter: grayscale(80%);
+        -webkit-filter: grayscale(80%);
+        cursor: pointer;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+
+    }
+    .albumjs-thumbnail-selected{
+        width: 14%;
+        margin: 1%;
+        display: inline-block;
+        border: 3px solid;
+        border-color: inherit;
+        filter: grayscale(0%);
+        -webkit-filter: grayscale(0%);
+
+    }
+    
+    #albumjs-gallery-close{
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+    font-weight: bold;
+        line-height: 1;
+    text-align: center;
+    padding: 0px;
+    }
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~ */
+
+/* Transions on load fix */
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~ */
+/* Mobile modifications */
+/* ~~~~~~~~~~~~~~~~~~~ */
+@media screen (max-width: 768px){
+
+    
+#albumjs-album-title{
+    margin: 5px;
+    color: inherit;
+    font-size: 24px;
+}
+
+#albumjs-main-pic-cont{
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+#albumjs-main-pic{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+#albumjs-main-pic-prev{
+    position: absolute;
+    left: 0;
+    width: 5%;
+    padding: 38% 20px;
+    height: 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+#albumjs-main-pic-next{
+    color: white;
+    position: absolute;
+    right: 0;
+    width: 5%;
+    padding: 38% 20px;
+    height: 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+.albumjs-thumbnail-pic{
+    width: 17%;
+    margin: 1%;
+    display: inline-block;
+    border: 3px solid;
+    border-color: inherit;
+    filter: grayscale(80%);
+    -webkit-filter: grayscale(80%);
+    cursor: pointer;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    
+}
+.albumjs-thumbnail-selected{
+    width: 18%;
+    margin: 1%;
+    display: inline-block;
+    border: 3px solid;
+    border-color: inherit;
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+    
+}
+
+    
+    
+    
+    
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~ */
+        /* Options */
+/* ~~~~~~~~~~~~~~~~~~~ */
+
+.preview-grayscale{
+    filter: grayscale(70%);
+    -webkit-filter: grayscale(70%);
+}
+.preview-grayscale:hover{
+    filter: grayscale(0);
+    -webkit-filter:grayscale(0);
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~ */
+        /* Preview Options */
+/* ~~~~~~~~~~~~~~~~~~~ */
+
+.single-view{
+    position: relative;
+}
+.single-view .album-view{
+    position: absolute;
+    border: 1px solid;
+    width: 99%;
+    box-shadow: 5px 5px 10px #464646;
+    cursor: pointer;
+}
+
+/* Stack Preview */
+
+.stack-2, .stack-3, .stack-4, .stack-5{
+    position: relative;
+    padding: 0px;
+}
+.stack-2 img{
+    display: none;
+}
+.stack-2 .album-view{
+    position: absolute;
+    border: 1px solid;
+    width: 89%;
+    box-shadow: 5px 5px 10px #464646;
+    cursor: pointer;
+}
+.stack-2 .album-view:hover{
+    z-index: 20 !important;
+    transform: scale(1.05);
+}
+.stack-2 .album-view:nth-child(1){
+    margin-top: 10%;
+    margin-left: 0%;
+    z-index: 13;
+    display: inline;
+}
+.stack-2 .album-view:nth-child(2){
+    margin-top: 0%;
+    margin-left: 10%;
+    z-index: 12;
+    display: inline;
+}
+
+
+.stack-3 img{
+    display: none;
+}
+.stack-3 .album-view{
+    position: absolute;
+    border: 1px solid;
+    width: 79%;
+    box-shadow: 5px 5px 10px #464646;
+    cursor: pointer;
+}
+.stack-3 .album-view:hover{
+    z-index: 20 !important;
+    transform: scale(1.05);
+}
+.stack-3 .album-view:nth-child(1){
+    margin-top: 20%;
+    margin-left: 0%;
+    z-index: 13;
+    display: inline;
+}
+.stack-3 .album-view:nth-child(2){
+    margin-top: 10%;
+    margin-left: 10%;
+    z-index: 12;
+    display: inline;
+}
+.stack-3 .album-view:nth-child(3){
+    margin-top: 0%;
+    margin-left: 20%;
+    z-index: 11;
+    display: inline;
+}
+
+.stack-4{
+    position: relative;
+}
+.stack-4 img{
+    display: none;
+}
+.stack-4 .album-view{
+    position: absolute;
+    border: 1px solid;
+    width: 75%;
+    box-shadow: 5px 5px 10px #464646;
+    cursor: pointer;
+    
+}
+.stack-4 .album-view:hover{
+    z-index: 20 !important;
+    transform: scale(1.05);
+}
+.stack-4 .album-view:nth-child(1){
+    margin-top: 18%;
+    margin-left: 0%;
+    z-index: 13;
+    display: inline;
+}
+.stack-4 .album-view:nth-child(2){
+    margin-top: 12%;
+    margin-left: 8%;
+    z-index: 12;
+    display: inline;
+}
+.stack-4 .album-view:nth-child(3){
+    margin-top: 6%;
+    margin-left: 16%;
+    z-index: 11;
+    display: inline;
+}
+.stack-4 .album-view:nth-child(4){
+    margin-top: 00%;
+    margin-left: 24%;
+    z-index: 10;
+    display: inline;
+}
+
+.stack-5{
+    position: relative;
+}
+.stack-5 img{
+    display: none;
+}
+.stack-5 .album-view{
+    position: absolute;
+    border: 1px solid;
+    width: 67%;
+    box-shadow: 5px 5px 10px #464646;
+    cursor: pointer;
+}
+.stack-5 .album-view:hover{
+    z-index: 20 !important;
+    transform: scale(1.05);
+}
+.stack-5 .album-view:nth-child(1){
+    margin-top: 24%;
+    margin-left: 0%;
+    z-index: 13;
+    display: inline;
+}
+.stack-5 .album-view:nth-child(2){
+    margin-top: 18%;
+    margin-left: 8%;
+    z-index: 12;
+    display: inline;
+}
+.stack-5 .album-view:nth-child(3){
+    margin-top: 12%;
+    margin-left: 16%;
+    z-index: 11;
+    display: inline;
+}
+.stack-5 .album-view:nth-child(4){
+    margin-top: 6%;
+    margin-left: 24%;
+    z-index: 10;
+    display: inline;
+}
+.stack-5 .album-view:nth-child(5){
+    margin-top: 0%;
+    margin-left: 32%;
+    z-index: 9;
+    display: inline;
+}
+
+
+/* Collage Preview */
+
+.collage-2, .collage-3, .collage-4, .collage-5{
+    position: relative;
+    padding: 0px;
+}
+.collage-2 img{
+    display: none;
+}
+.collage-2 .album-view{
+    position: absolute;
+    width: 50%;
+    cursor: pointer;
+    transform: scale(1, 2) translate(0px, 25%);
+    border: 3px solid rgb(230,230,230);
+}
+.collage-2 .album-view:hover{
+    border: 3px solid rgb(140,140,140);
+
+    z-index: 20 !important;
+    transform:scale(1.05, 2.10) translate(0px, 25%);
+}
+.collage-2 .album-view:nth-child(1){
+    display: inline;
+}
+.collage-2 .album-view:nth-child(2){
+    margin-left: 50%;
+    display: inline;
+}
+
+
+.collage-3 img{
+    display: none;
+}
+.collage-3 .album-view{
+    position: absolute;
+    width: 50%;
+    cursor: pointer;
+    
+    border: 3px solid rgb(230,230,230);
+}
+.collage-3 .album-view:hover{
+    border: 3px solid rgb(140,140,140);
+    z-index: 20 !important;
+}
+.collage-3 .album-view:nth-child(1){
+    transform: scale(1, 2) translate(0px, 25%);
+    display: inline;
+}
+.collage-3 .album-view:nth-child(1):hover{
+    transform:scale(1.05, 2.10) translate(0px, 25%);
+}
+.collage-3 .album-view:nth-child(2){
+    margin-left: 50%;
+    display: inline;
+}
+.collage-3 .album-view:nth-child(2):hover{
+    transform:scale(1.05);
+}
+.collage-3 .album-view:nth-child(3){
+    display: inline;
+    margin-left: 50%;
+    transform: translate(0px, 100%);
+}
+.collage-3 .album-view:nth-child(3):hover{
+    transform:scale(1.05) translate(0px, 95%);
+    display: inline;
+}
+
+
+.collage-4 img{
+    display: none;
+}
+.collage-4 .album-view{
+    position: absolute;
+    width: 50%;
+    cursor: pointer;
+    border: 3px solid rgb(230,230,230);
+}
+.collage-4 .album-view:hover{
+    border: 3px solid rgb(140,140,140);
+    z-index: 20 !important;
+    transform:scale(1.05);
+}
+.collage-4 .album-view:nth-child(1){
+    display: inline;
+}
+.collage-4 .album-view:nth-child(2){
+    margin-left: 50%;
+    display: inline;
+}
+.collage-4 .album-view:nth-child(3){
+    transform: translate(0px, 100%);
+    display: inline;
+}
+.collage-4 .album-view:nth-child(4){
+    transform: translate(0px, 100%);
+    margin-left: 50%;
+    display: inline;
+}
+.collage-4 .album-view:nth-child(3):hover{
+    transform:scale(1.05) translate(0px, 100%);
+}
+.collage-4 .album-view:nth-child(4):hover{
+    transform:scale(1.05) translate(0px, 100%);
+}
+
+
+.collage-5 img{
+    display: none;
+}
+.collage-5 .album-view{
+    position: absolute;
+    cursor: pointer;
+    border: 3px solid rgb(230,230,230);
+}
+.collage-5 .album-view:hover{
+    border: 3px solid rgb(140,140,140);
+    z-index: 20 !important;
+    transform:scale(1.05);
+}
+.collage-5 .album-view:nth-child(1){
+    width: 50%;
+    display: inline;
+}
+.collage-5 .album-view:nth-child(2){
+    width: 50%;
+    margin-left: 50%;
+    display: inline;
+}
+.collage-5 .album-view:nth-child(3){
+    width: 33.333%;
+    transform: translate(0px, 166%) scale(1, 1.35);
+    display: inline;
+}
+.collage-5 .album-view:nth-child(4){
+    width: 33.333%;
+    transform: translate(0px, 166%) scale(1, 1.35);
+    margin-left: 33.333%;
+    display: inline;
+}
+.collage-5 .album-view:nth-child(5){
+    width: 33.333%;
+    transform: translate(0px, 166%) scale(1, 1.35);
+    margin-left: 66.6666%;
+    display: inline;
+}
+.collage-5 .album-view:nth-child(3):hover{
+    transform: translate(0px, 166%) scale(1.05, 1.4175);
+}
+.collage-5 .album-view:nth-child(4):hover{
+    transform: translate(0px, 166%) scale(1.05, 1.4175);
+}
+.collage-5 .album-view:nth-child(5):hover{
+    transform: translate(0px, 166%) scale(1.05, 1.4175);
+}
+
+
+
+.fader{
+    position: relative;
+}
+.fader img{
+    display: none;
+}
+
+
+
+
+
+/* Shutter Preview */
+
+.shutter-2, .shutter-3, .shutter-4, .shutter-5{
+    position: relative;
+    padding: 0px;
+}
+.shutter-2 img{
+    display: none;
+}
+.shutter-2 .album-view{
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+    -webkit-clip-path: inset(0% 25% 0% 25%);
+}
+.shutter-2 .album-view:hover{
+    z-index: 20 !important;
+}
+.shutter-2 .album-view:hover:hover{
+    margin-left: 0%;
+    -webkit-clip-path: inset(0% 0% 0% 0%);
+}
+.shutter-2 .album-view:nth-child(1){
+    margin-left: -25%;
+    display: inline;
+}
+.shutter-2 .album-view:nth-child(2){
+    margin-left: 25%;
+    display: inline;
+}
+
+.shutter-3{
+    position: relative;
+}
+.shutter-3 img{
+    display: none;
+}
+.shutter-3 .album-view{
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+    -webkit-clip-path: inset(0% 33.333% 0% 33.333%);
+}
+.shutter-3 .album-view:hover{
+    z-index: 20 !important;
+}
+.shutter-3 .album-view:hover:hover{
+    margin-left: 0%;
+    -webkit-clip-path: inset(0% 0% 0% 0%);
+}
+.shutter-3 .album-view:nth-child(1){
+    margin-left: -33.333%;
+    display: inline;
+}
+.shutter-3 .album-view:nth-child(2){
+    margin-left: 0%;
+    display: inline;
+}
+.shutter-3 .album-view:nth-child(3){
+    margin-left: 33.333%;
+    display: inline;
+}
+
+.shutter-4{
+    position: relative;
+}
+.shutter-4 img{
+    display: none;
+}
+.shutter-4 .album-view{
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+    -webkit-clip-path: inset(0% 37.5% 0% 37.5%);
+}
+.shutter-4 .album-view:hover{
+    z-index: 20 !important;
+}
+.shutter-4 .album-view:hover:hover{
+    margin-left: 0%;
+    -webkit-clip-path: inset(0% 0% 0% 0%);
+}
+.shutter-4 .album-view:nth-child(1){
+    margin-left: -37.5%;
+    display: inline;
+}
+.shutter-4 .album-view:nth-child(2){
+    margin-left: -12.5%;
+    display: inline;
+}
+.shutter-4 .album-view:nth-child(3){
+    margin-left: 12.5%;
+    display: inline;
+}
+.shutter-4 .album-view:nth-child(4){
+    margin-left: 37.5%;
+    display: inline;
+}
+
+.shutter-5{
+    position: relative;
+}
+.shutter-5 img{
+    display: none;
+}
+.shutter-5 .album-view{
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+    -webkit-clip-path: inset(0% 40% 0% 40%);
+}
+.shutter-5 .album-view:hover{
+    z-index: 20 !important;
+}
+.shutter-5 .album-view:hover:hover{
+    margin-left: 0%;
+    -webkit-clip-path: inset(0% 0% 0% 0%);
+}
+.shutter-5 .album-view:nth-child(1){
+    margin-left: -40%;
+    display: inline;
+}
+.shutter-5 .album-view:nth-child(2){
+    margin-left: -20%;
+    display: inline;
+}
+.shutter-5 .album-view:nth-child(3){
+    margin-left: 0%;
+    display: inline;
+}
+.shutter-5 .album-view:nth-child(4){
+    margin-left: 20%;
+    display: inline;
+}
+.shutter-5 .album-view:nth-child(5){
+    margin-left: 40%;
+    display: inline;
+}
+
+
+
+
+
+.fader{
+    position: relative;
+    padding: 0px;
+}
+
+.fader img{
+    width: 95%;
+}
+
+.fader .album-view{
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+    display: none;
+    transition: 0ms !important;
+}
